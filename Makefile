@@ -4,9 +4,10 @@ DEBUG = -g
 LIBFT = libft/libft.a
 NAME = push_swap
 
-SRCS = srcs/err_check.c srcs/free_all.c srcs/init.c srcs/list_act.c srcs/main.c
+SRCS = srcs/err_check.c srcs/free_all.c srcs/init.c srcs/list_act.c \
+		srcs/main.c srcs/engine.c
 
-OBJS = err_check.o free_all.o init.o list_act.o main.o
+OBJS = err_check.o free_all.o init.o list_act.o main.o engine.o
 
 INCLUDES = -I./includes
 

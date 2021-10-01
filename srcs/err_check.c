@@ -6,7 +6,7 @@
 /*   By: echerell <echerell@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 00:00:42 by echerell          #+#    #+#             */
-/*   Updated: 2021/09/30 00:04:30 by echerell         ###   ########.fr       */
+/*   Updated: 2021/10/01 22:30:39 by echerell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	check_dups(t_dlist **head)
 	{
 		if (copy_stat->value == copy_din->value)
 		{
-			free_all(head);
+			free_all(head, NULL);
 			ft_putstr_fd("Error\n", 1);
 			exit(EXIT_SUCCESS);
 		}

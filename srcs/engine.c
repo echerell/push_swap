@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   engine.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: echerell <echerell@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/05 22:19:45 by echerell          #+#    #+#             */
-/*   Updated: 2021/10/01 16:25:51 by echerell         ###   ########.fr       */
+/*   Created: 2021/10/01 12:14:50 by echerell          #+#    #+#             */
+/*   Updated: 2021/10/01 16:17:12 by echerell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/push_swap.h"
 
-t_list	*ft_lstnew(void *content)
+void	swap(t_stack *st, t_list **his)
 {
-	t_list	*new;
+	t_dlist	*copy;
+	int		tmp;
 
-	new = (t_list *)malloc(sizeof(t_list));
-	if (!new)
-		return (NULL);
-	new->content = content;
-	new->next = NULL;
-	return (new);
+	if (st->count != 1)
+	{
+		copy = st->head;
+		copy = copy->next;
+		tmp = (st->head)->value;
+		(st->head)->value = copy->value;
+		copy->value = tmp;
+		if (st->name == 'a')
+			ft_lstadd_back(his, ft_lstnew("sa"));
+		else
+			ft_lstadd_back(his, ft_lstnew("sb"));
+	}
 }

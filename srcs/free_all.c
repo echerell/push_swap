@@ -6,15 +6,35 @@
 /*   By: echerell <echerell@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 00:07:57 by echerell          #+#    #+#             */
-/*   Updated: 2021/09/30 00:08:23 by echerell         ###   ########.fr       */
+/*   Updated: 2021/10/01 22:40:39 by echerell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	free_all(t_dlist **head)
+static void	lst_free(t_list **lst)
 {
-	t_dlist *copy;
+	t_list	*begin;
+	t_list	*current;
+
+	if (lst && *lst)
+	{
+		begin = *lst;
+		current = NULL;
+		while (begin->next)
+		{
+			current = begin;
+			begin = begin->next;
+			free(current);
+		}
+		free(begin);
+		*lst = NULL;
+	}
+}
+
+void	free_all(t_dlist **head, t_list **his)
+{
+	t_dlist	*copy;
 
 	copy = *head;
 	while (copy)
@@ -30,4 +50,6 @@ void	free_all(t_dlist **head)
 			free(copy->prev);
 		}
 	}
+	if (his)
+		lst_free(his);
 }

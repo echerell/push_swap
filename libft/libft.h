@@ -6,7 +6,7 @@
 /*   By: echerell <echerell@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 13:12:12 by echerell          #+#    #+#             */
-/*   Updated: 2021/05/07 17:13:42 by echerell         ###   ########.fr       */
+/*   Updated: 2021/10/01 16:27:36 by echerell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 typedef struct s_list
 {
-	void			*content;
+	char			*content;
 	struct s_list	*next;
 }t_list;
 
