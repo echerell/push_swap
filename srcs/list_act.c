@@ -6,25 +6,26 @@
 /*   By: echerell <echerell@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 00:06:46 by echerell          #+#    #+#             */
-/*   Updated: 2021/10/01 22:27:29 by echerell         ###   ########.fr       */
+/*   Updated: 2021/10/01 23:31:35 by echerell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-t_dlist	*create_node(char *str, t_dlist **head, t_list **his)
+t_dlist	*create_node(int val, t_stack *a, t_stack *b, t_list **his)
 {
 	t_dlist	*node;
 
 	node = (t_dlist *)malloc(sizeof(t_dlist));
 	if (!node)
 	{
-		free_all(head, his);
+		free_all(&(a->head), his);
+		free_all(&(b->head), NULL);
 		exit(EXIT_FAILURE);
 	}
 	node->next = NULL;
 	node->prev = NULL;
-	node->value = ft_atoi(str);
+	node->value = val;
 	return (node);
 }
 

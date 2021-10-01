@@ -6,7 +6,7 @@
 /*   By: echerell <echerell@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 00:04:46 by echerell          #+#    #+#             */
-/*   Updated: 2021/10/01 22:31:54 by echerell         ###   ########.fr       */
+/*   Updated: 2021/10/01 23:35:43 by echerell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	init_stacks(t_stack *a, t_stack *b)
 {
 	a->name = 'a';
-	b->name = 'a';
+	b->name = 'b';
 	a->count = 0;
 	b->count = 0;
 	a->is_sorted = 0;
@@ -26,15 +26,16 @@ void	init_stacks(t_stack *a, t_stack *b)
 	b->tail = NULL;
 }
 
-//change head and tail to history
-void	init_list(char **argv, t_stack *a, t_list **his)
+void	init_list(char **argv, t_stack *a, t_list **h)
 {
 	int	i;
+	int	val;
 
 	i = 1;
 	while (argv[i])
 	{
-		add_back(create_node(argv[i], &(a->head), his), &(a->head), &(a->tail));
+		val = ft_atoi(argv[i]);
+		add_back(create_node(val, a, NULL, h), &(a->head), &(a->tail));
 		i++;
 		a->count++;
 	}
