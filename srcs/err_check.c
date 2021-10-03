@@ -6,7 +6,7 @@
 /*   By: echerell <echerell@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 00:00:42 by echerell          #+#    #+#             */
-/*   Updated: 2021/10/01 22:30:39 by echerell         ###   ########.fr       */
+/*   Updated: 2021/10/03 14:20:50 by echerell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ static int	isint(char *str)
 	return (1);
 }
 
-void	check_args(char **argv)
+void	check_args(char **argv, int argc)
 {
 	int	i;
 	int	j;
 
 	i = 1;
-	while (argv[i])
+	while (i < argc)
 	{
 		if (!(isint(argv[i])))
 		{
@@ -72,7 +72,7 @@ void	check_dups(t_dlist **head)
 	{
 		if (copy_stat->value == copy_din->value)
 		{
-			free_all(head, NULL);
+			free_lists(head, NULL);
 			ft_putstr_fd("Error\n", 1);
 			exit(EXIT_SUCCESS);
 		}

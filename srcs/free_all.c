@@ -6,7 +6,7 @@
 /*   By: echerell <echerell@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 00:07:57 by echerell          #+#    #+#             */
-/*   Updated: 2021/10/01 22:40:39 by echerell         ###   ########.fr       */
+/*   Updated: 2021/10/03 12:59:25 by echerell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	lst_free(t_list **lst)
 	}
 }
 
-void	free_all(t_dlist **head, t_list **his)
+void	free_lists(t_dlist **head, t_list **his)
 {
 	t_dlist	*copy;
 

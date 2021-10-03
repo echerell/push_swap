@@ -6,12 +6,25 @@
 /*   By: echerell <echerell@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 22:14:48 by echerell          #+#    #+#             */
-/*   Updated: 2021/10/02 01:44:10 by echerell         ###   ########.fr       */
+/*   Updated: 2021/10/03 14:43:48 by echerell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "../includes/push_swap.h"
+
+static void	print_array(int *arr, int n)
+{
+	int	i;
+
+	i = 0;
+	printf("-----array-----\n");
+	while (i < n)
+	{
+		printf("%i\n", arr[i]);
+		i++;
+	}
+}
 
 static void	print_hist(void *act)
 {
@@ -26,7 +39,7 @@ static void	print_list(t_dlist **ptr, int back)
 	copy = *ptr;
 	while (copy)
 	{
-		printf("%i\n", copy->value);
+		printf("%i\t\tindex:%i\n", copy->value, copy->index);
 		if (back)
 			copy = copy->prev;
 		else
@@ -36,26 +49,21 @@ static void	print_list(t_dlist **ptr, int back)
 
 int	main(int argc, char **argv)
 {
-	t_stack	a;
-	t_stack	b;
-	t_list	*history;
+	t_program	prog;
 
-	history = NULL;
 	if (argc <= 2)
 		exit(EXIT_SUCCESS);
-	check_args(argv);
-	init_stacks(&a, &b);
-	init_list(argv, &a, &history);
-	check_dups(&(a.head));
-	rev_rot(&a, &b, &history);
+	init_prog(&prog, argv, argc);
+	print_array(prog.sorted, prog.a.count);
 	printf("-----A-----\n");
-	print_list(&(a.head), 0);
-	printf("count = %i\n", a.count);
+	print_list(&(prog.a.head), 0);
+	printf("count = %i\n", prog.a.count);
 	printf("-----B-----\n");
-	print_list(&(b.head), 0);
-	printf("count = %i\n", b.count);
+	print_list(&(prog.b.head), 0);
+	printf("count = %i\n", prog.b.count);
 	printf("\nhistory:\n");
-	ft_lstiter(history, print_hist);
-	free_all(&(a.head), &history);
+	ft_lstiter(prog.hist, print_hist);
+	free_lists(&(prog.a.head), &(prog.hist));
+	free(prog.sorted);
 	return (0);
 }

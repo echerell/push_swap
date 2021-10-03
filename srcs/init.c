@@ -6,37 +6,73 @@
 /*   By: echerell <echerell@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 00:04:46 by echerell          #+#    #+#             */
-/*   Updated: 2021/10/01 23:35:43 by echerell         ###   ########.fr       */
+/*   Updated: 2021/10/03 14:55:34 by echerell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	init_stacks(t_stack *a, t_stack *b)
+static void	init_stacks(t_stack *a, t_stack *b)
 {
 	a->name = 'a';
 	b->name = 'b';
 	a->count = 0;
 	b->count = 0;
-	a->is_sorted = 0;
-	b->is_sorted = 0;
 	a->head = NULL;
 	a->tail = NULL;
 	b->head = NULL;
 	b->tail = NULL;
 }
 
-void	init_list(char **argv, t_stack *a, t_list **h)
+static void	init_list(char **argv, int argc, t_program *prog)
 {
 	int	i;
+	int	j;
 	int	val;
 
 	i = 1;
-	while (argv[i])
+	while (i < argc)
 	{
 		val = ft_atoi(argv[i]);
-		add_back(create_node(val, a, NULL, h), &(a->head), &(a->tail));
+		add_back(create_node(val, prog), &(prog->a.head), &(prog->a.tail));
+		prog->a.count++;
+		j = 0;
+		while (j < (argc - 1) && !(prog->a.tail->index))
+		{
+			if (prog->sorted[j] == val)
+				prog->a.tail->index = j + 1;
+			j++;
+		}
 		i++;
-		a->count++;
 	}
+}
+
+static void	init_array(char **argv, int argc, t_program *prog)
+{
+	int	i;
+
+	prog->sorted = (int *)malloc(sizeof(int) * (argc - 1));
+	if (!(prog->sorted))
+	{
+		free_lists(&(prog->a.head), NULL);
+		exit(EXIT_FAILURE);
+	}
+	i = 0;
+	while (i < (argc - 1))
+	{
+		prog->sorted[i] = ft_atoi(argv[i + 1]);
+		i++;
+	}
+	ft_quicksort(prog->sorted, argc - 1);
+}
+
+void	init_prog(t_program *prog, char **argv, int argc)
+{
+	check_args(argv, argc);
+	prog->sorted = NULL;
+	prog->hist = NULL;
+	init_array(argv, argc, prog);
+	init_stacks(&(prog->a), &(prog->b));
+	init_list(argv, argc, prog);
+	check_dups(&((prog->a).head));
 }
