@@ -6,7 +6,7 @@
 /*   By: echerell <echerell@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 00:00:42 by echerell          #+#    #+#             */
-/*   Updated: 2021/10/03 14:20:50 by echerell         ###   ########.fr       */
+/*   Updated: 2021/10/03 20:49:02 by echerell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,18 +61,19 @@ void	check_args(char **argv, int argc)
 	}
 }
 
-void	check_dups(t_dlist **head)
+void	check_dups(t_program *prog)
 {
 	t_dlist	*copy_din;
 	t_dlist	*copy_stat;
 
-	copy_din = (*head)->next;
-	copy_stat = *head;
+	copy_din = (prog->a.head)->next;
+	copy_stat = prog->a.head;
 	while (copy_din != copy_stat)
 	{
 		if (copy_stat->value == copy_din->value)
 		{
-			free_lists(head, NULL);
+			free_lists(&(prog->a.head), NULL);
+			free(prog->sorted);
 			ft_putstr_fd("Error\n", 1);
 			exit(EXIT_SUCCESS);
 		}

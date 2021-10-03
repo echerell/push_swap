@@ -5,9 +5,11 @@ LIBFT = libft/libft.a
 NAME = push_swap
 
 SRCS = srcs/err_check.c srcs/free_all.c srcs/init.c srcs/list_act.c \
-		srcs/main.c srcs/engine.c srcs/arr_sort.c
+		srcs/main.c srcs/engine.c srcs/arr_sort.c srcs/algorithm.c \
+		srcs/small_alg.c
 
-OBJS = err_check.o free_all.o init.o list_act.o main.o engine.o arr_sort.o
+OBJS = err_check.o free_all.o init.o list_act.o main.o engine.o arr_sort.o \
+		algorithm.o small_alg.o
 
 INCLUDES = -I./includes
 
