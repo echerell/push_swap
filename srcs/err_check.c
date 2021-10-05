@@ -6,7 +6,7 @@
 /*   By: echerell <echerell@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 00:00:42 by echerell          #+#    #+#             */
-/*   Updated: 2021/10/03 20:49:02 by echerell         ###   ########.fr       */
+/*   Updated: 2021/10/04 22:40:53 by echerell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	check_args(char **argv, int argc)
 		if (!(isint(argv[i])))
 		{
 			ft_putstr_fd("Error\n", 1);
-			exit(EXIT_SUCCESS);
+			exit(EXIT_FAILURE);
 		}
 		j = 0;
 		while (argv[i][j])
@@ -53,7 +53,7 @@ void	check_args(char **argv, int argc)
 			if (!ft_isdigit(argv[i][j]) || !argv[i][j])
 			{
 				ft_putstr_fd("Error\n", 1);
-				exit(EXIT_SUCCESS);
+				exit(EXIT_FAILURE);
 			}
 			j++;
 		}
@@ -75,7 +75,7 @@ void	check_dups(t_program *prog)
 			free_lists(&(prog->a.head), NULL);
 			free(prog->sorted);
 			ft_putstr_fd("Error\n", 1);
-			exit(EXIT_SUCCESS);
+			exit(EXIT_FAILURE);
 		}
 		if (copy_din->next == NULL)
 		{

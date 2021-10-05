@@ -6,7 +6,7 @@
 /*   By: echerell <echerell@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/03 22:30:35 by echerell          #+#    #+#             */
-/*   Updated: 2021/10/03 22:32:58 by echerell         ###   ########.fr       */
+/*   Updated: 2021/10/03 22:43:16 by echerell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ static void	alg_4elem(t_program *prog, int sub)
 		alg_3elem(prog, sub);
 		push(&(prog->b), &(prog->a), prog);
 	}
-
 }
 
 static void	alg_5elem(t_program *prog, int sub)

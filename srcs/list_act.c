@@ -6,7 +6,7 @@
 /*   By: echerell <echerell@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 00:06:46 by echerell          #+#    #+#             */
-/*   Updated: 2021/10/03 14:37:10 by echerell         ###   ########.fr       */
+/*   Updated: 2021/10/04 22:37:04 by echerell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ t_dlist	*create_node(int val, t_program *prog)
 	node->prev = NULL;
 	node->value = val;
 	node->index = 0;
+	node->flag = 0;
 	return (node);
 }
 

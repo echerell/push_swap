@@ -7,6 +7,7 @@ typedef struct s_dlist
 {
 	int				value;
 	int				index;
+	int				flag;
 	struct s_dlist	*next;
 	struct s_dlist	*prev;
 }t_dlist;
@@ -25,6 +26,8 @@ typedef struct s_program
 	t_stack	b;
 	int		*sorted;
 	t_list	*hist;
+	int		main_flag;
+	int		next_ind;
 }t_program;
 
 void	check_args(char **argv, int argc);

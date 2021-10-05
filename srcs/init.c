@@ -6,7 +6,7 @@
 /*   By: echerell <echerell@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 00:04:46 by echerell          #+#    #+#             */
-/*   Updated: 2021/10/03 20:49:26 by echerell         ###   ########.fr       */
+/*   Updated: 2021/10/04 22:37:24 by echerell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ void	init_prog(t_program *prog, char **argv, int argc)
 	check_args(argv, argc);
 	prog->sorted = NULL;
 	prog->hist = NULL;
+	prog->main_flag = 0;
+	prog->next_ind = 1;
 	init_array(argv, argc, prog);
 	init_stacks(&(prog->a), &(prog->b));
 	init_list(argv, argc, prog);
