@@ -47,9 +47,18 @@ void	push(t_stack *from, t_stack *to, t_program *prog);
 void	rotate(t_stack *rot, t_program *prog);
 void	rev_rot(t_stack *rot, t_program *prog);
 
-void	algorithm(t_program *prog);
 int		check_sort(t_program *prog);
+int		isless_mid(t_dlist **head, int mid);
+int		max_ind(t_dlist **head);
+void	move_bot(t_program *prog);
+int		init_lmr(int first, int *mid, int *right, t_program *prog);
+
+void	algorithm(t_program *prog);
 void	small_alg(t_program *prog);
+void	big_alg(t_program *prog);
+
+void	check_hist(t_list **hist);
+void	print_hist(void *act);
 
 void	free_lists(t_dlist **head, t_list **his);
 
