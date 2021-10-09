@@ -6,7 +6,7 @@
 /*   By: echerell <echerell@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 19:57:16 by echerell          #+#    #+#             */
-/*   Updated: 2021/10/07 19:57:18 by echerell         ###   ########.fr       */
+/*   Updated: 2021/10/09 19:55:33 by echerell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct s_program
 	int		next_ind;
 }t_program;
 
-void	check_args(char **argv, int argc);
+void	check_args(char **argv, int argc, int i);
 void	check_dups(t_program *prog);
 
 void	init_prog(t_program *prog, char **argv, int argc);

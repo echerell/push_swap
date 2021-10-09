@@ -13,6 +13,8 @@ OBJS = err_check.o free_all.o init.o list_act.o main.o engine.o arr_sort.o \
 
 INCLUDES = -I./includes
 
+.PHONY: all clean fclean re
+
 all: $(NAME)
 
 $(NAME):

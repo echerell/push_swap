@@ -6,7 +6,7 @@
 /*   By: echerell <echerell@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 00:00:42 by echerell          #+#    #+#             */
-/*   Updated: 2021/10/06 14:54:08 by echerell         ###   ########.fr       */
+/*   Updated: 2021/10/09 21:08:05 by echerell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ static int	isint(char *str)
 	n = 0;
 	i = 0;
 	sign = 1;
+	if (str[0] == '\0')
+		return (0);
 	while (str[i] == ' ' || (str[i] >= '\t' && str[i] <= '\r'))
 		i++;
 	if (str[i] == '-' || str[i] == '+')
@@ -41,12 +43,10 @@ static int	isint(char *str)
 	return (1);
 }
 
-void	check_args(char **argv, int argc)
+void	check_args(char **argv, int argc, int i)
 {
-	int	i;
 	int	j;
 
-	i = 1;
 	while (i < argc)
 	{
 		if (!(isint(argv[i])))
