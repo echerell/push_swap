@@ -6,7 +6,7 @@
 /*   By: echerell <echerell@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 19:57:16 by echerell          #+#    #+#             */
-/*   Updated: 2021/10/09 19:55:33 by echerell         ###   ########.fr       */
+/*   Updated: 2021/10/10 17:08:01 by echerell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,6 @@ void	check_hist(t_list **hist);
 void	print_hist(void *act);
 
 void	free_lists(t_dlist **head, t_list **his);
+void	free_argv(char **argv);
 
 #endif

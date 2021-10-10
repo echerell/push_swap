@@ -6,12 +6,11 @@
 /*   By: echerell <echerell@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 00:04:46 by echerell          #+#    #+#             */
-/*   Updated: 2021/10/09 20:51:48 by echerell         ###   ########.fr       */
+/*   Updated: 2021/10/10 18:08:13 by echerell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include <stdio.h>
 
 static void	init_stacks(t_stack *a, t_stack *b)
 {
@@ -70,17 +69,18 @@ static void	init_array(char **argv, int argc, t_program *prog, int i)
 	ft_quicksort(prog->sorted, argc - shift);
 }
 
-static void	free_argv(char **argv)
+static char	**convert_args(int *alloc, int *shift, int *argc, char **argv)
 {
-	int	i;
+	int		new_argc;
 
-	i = 0;
-	while (argv[i])
-	{
-		free(argv[i]);
-		i++;
-	}
-	free(argv);
+	new_argc = 0;
+	argv = ft_split(argv[1], ' ');
+	*alloc = 1;
+	while (argv[new_argc])
+		new_argc++;
+	*shift = 0;
+	*argc = new_argc;
+	return (argv);
 }
 
 void	init_prog(t_program *prog, char **argv, int argc)
@@ -91,21 +91,12 @@ void	init_prog(t_program *prog, char **argv, int argc)
 	int		shift;
 
 	alloc = 0;
-	new_argc = 0;
 	shift = 1;
 	if (argc == 2)
-	{
-		new_argv = ft_split(argv[1], ' ');
-		alloc = 1;
-		while (new_argv[new_argc])
-			new_argc++;
-		shift = 0;
-	}
+		new_argv = convert_args(&alloc, &shift, &argc, argv);
 	else
-	{
 		new_argv = argv;
-		new_argc = argc;
-	}
+	new_argc = argc;
 	check_args(new_argv, new_argc, shift);
 	prog->sorted = NULL;
 	prog->hist = NULL;

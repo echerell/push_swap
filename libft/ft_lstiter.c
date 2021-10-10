@@ -6,13 +6,13 @@
 /*   By: echerell <echerell@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 00:05:30 by echerell          #+#    #+#             */
-/*   Updated: 2021/10/01 16:27:38 by echerell         ###   ########.fr       */
+/*   Updated: 2021/10/10 17:05:16 by echerell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstiter(t_list *lst, void(*f)(void *))
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	t_list	*current;
 
